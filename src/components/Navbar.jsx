@@ -60,7 +60,7 @@ function Navbar() {
     ]
 
     return (
-        <div className='w-1/6 h-screen bg-black text-white border-r-2 border-zinc-700'>
+        <div className='w-1/5 h-screen bg-black text-white border-r-2 border-zinc-700 fixed'>
             <nav className='bg-zinc-900 p-4 rounded-2xl h-[calc(100%-0.5rem)] mx-2 my-1 flex flex-col justify-between'>
                 <div className='flex justify-center items-center'>
                     <span className='flex justify-center items-center gap-2'>

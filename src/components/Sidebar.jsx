@@ -2,7 +2,7 @@ import React from 'react'
 
 function Sidebar() {
     return (
-        <div className="w-1/4 bg-black text-white p-4 border-l-2 border-zinc-700 flex flex-col justify-between">
+        <div className="w-1/4 h-screen bg-black text-white p-4 border-l-2 border-zinc-700 fixed right-0 flex flex-col justify-between">
 
             <img className='inline-block' src="src/assets/—Pngtree—ppt data line chart illustration_5468581.png" alt="" />
             <div className='bg-zinc-900 m-2 rounded-2xl'>

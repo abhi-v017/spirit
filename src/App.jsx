@@ -5,11 +5,17 @@ import { Outlet } from 'react-router-dom'
 function App() {
   return (
     <div className="min-h-screen flex">
-      <Navbar />
-      <main className="flex-1 p-4">
-        <Outlet />
+      <div className="w-1/6">
+        <Navbar />
+      </div>
+      <main className="w-[calc(100%-41.67%)] overflow-y-auto">
+        <div className="w-full">
+          <Outlet />
+        </div>
       </main>
-      <Sidebar />
+      <div className="w-1/4">
+        <Sidebar />
+      </div>
     </div>
   )
 }

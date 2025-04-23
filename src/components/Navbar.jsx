@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import authService from '../services/authService'
 
@@ -9,7 +9,7 @@ function Navbar() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
-    const [profile,setProfile] = useState(null)
+    const [profile, setProfile] = useState(null)
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
 
@@ -32,7 +32,7 @@ function Navbar() {
             }
         }
 
-            fetchProfile()
+        fetchProfile()
     }, [authStatus])
     const navItems = [
         {
@@ -94,14 +94,6 @@ function Navbar() {
             active: authStatus
         }
     ]
-    if(authStatus){
-        return(
-            <div className='flex gap-2 justify-center items-center cursor-pointer hover:bg-zinc-200 hover:text-black rounded-2xl px-4 py-2'>
-                    <img className='rounded-full h-10 w-10' src={profile.avtar || "https://via.placeholder.com/150"} alt="" />
-                    <span>{profile.username}</span>
-                </div>
-        )
-    }
     return (
         <div className='w-1/5 h-screen bg-black text-white border-r-2 border-zinc-700 fixed left-0 top-0 z-50'>
             <nav className='bg-zinc-900 p-4 rounded-2xl h-[calc(100%-0.5rem)] mx-2 my-1 flex flex-col justify-between'>
@@ -132,15 +124,13 @@ function Navbar() {
                     ) : null
                     )}
                 </ul>
-
-                <div className='flex gap-2 justify-center items-center cursor-pointer hover:bg-zinc-200 hover:text-black rounded-2xl px-4 py-2'>
-                    <img className='rounded-full h-10 w-10' src={profile.avtar || "https://via.placeholder.com/150"} alt="" />
+                {authStatus && (<Link to={'/my-profile'} className='flex gap-2 justify-center items-center cursor-pointer hover:bg-zinc-200 hover:text-black rounded-2xl px-4 py-2'>
+                    <img className='rounded-full h-10 w-10 object-cover' src={profile.avtar} alt="" />
                     <span>{profile.username}</span>
-                </div>
+                </Link>)}
             </nav>
         </div>
     )
-    
 }
 
 export default Navbar

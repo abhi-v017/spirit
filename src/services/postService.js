@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export class ProfileService {
+export class PostService {
     async CreatePostService(data) {
         const options = {
             method: 'POST',
@@ -248,5 +248,5 @@ export class ProfileService {
     }
 }
 
-const profileService = new ProfileService();
-export default profileService;
+const postService = new PostService();
+export default postService;

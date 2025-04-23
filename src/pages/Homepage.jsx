@@ -20,7 +20,7 @@ function Homepage() {
         <div className='text-white bg-black p-2 flex justify-center items-center'>
             <Container>
                 <div className='border-2 border-zinc-700 rounded-full p-2 flex justify-between items-center'>
-                    <input className='w-[80vh] p-1 rounded-full border-black border-2' type="text" placeholder='Your task to be completed!!!' />
+                    <input className='w-[50vh] p-1 rounded-full border-black border-2' type="text" placeholder='Your task to be completed!!!' />
                     <span className='p-1'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#ffffff" fill="none">
                         <path d="M11 8H13C15.8284 8 17.2426 8 18.1213 8.87868C19 9.75736 19 11.1716 19 14C19 16.8284 19 18.2426 18.1213 19.1213C17.2426 20 15.8284 20 13 20H12C12 20 11.5 22 8 22C8 22 9 20.9913 9 19.9827C7.44655 19.9359 6.51998 19.7626 5.87868 19.1213C5 18.2426 5 16.8284 5 14C5 11.1716 5 9.75736 5.87868 8.87868C6.75736 8 8.17157 8 11 8Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
                         <path d="M19 11.5H19.5C20.4346 11.5 20.9019 11.5 21.25 11.701C21.478 11.8326 21.6674 12.022 21.799 12.25C22 12.5981 22 13.0654 22 14C22 14.9346 22 15.4019 21.799 15.75C21.6674 15.978 21.478 16.1674 21.25 16.299C20.9019 16.5 20.4346 16.5 19.5 16.5H19" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />

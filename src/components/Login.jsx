@@ -85,7 +85,7 @@ function Login() {
                     <p className="mt-4 text-center text-base text-zinc-400">
                         Don&apos;t have an account?&nbsp;
                         <Link
-                            to="/register"
+                            to="/signup"
                             className="font-medium text-white hover:text-zinc-300 transition-colors"
                         >
                             Sign Up

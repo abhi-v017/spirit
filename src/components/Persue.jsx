@@ -13,7 +13,7 @@ function Persue({ image, username, fullName, userId, ispersuing }) {
         navigate(`/profile/${username}`)
     }
 
-    const handlepersu = async (e) => {
+    const handlepersue = async (e) => {
         e.stopPropagation() // Prevent navigation when clicking the persu button
         if (!authStatus) {
             alert("You must be logged in to persue users.")
@@ -49,7 +49,7 @@ function Persue({ image, username, fullName, userId, ispersuing }) {
             </div>
             {authStatus && (
                 <button
-                    onClick={handlepersu}
+                    onClick={handlepersue}
                     disabled={loading}
                     className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                         persuing 

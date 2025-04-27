@@ -1,35 +1,35 @@
 import React, { useEffect, useState } from 'react'
 import Persue from '../components/Persue'
 import { useParams } from 'react-router-dom'
-import persueService from '../services/persueService'
+import PersueService from '../services/persueService'
 import Container from '../components/Container'
 
-function Persuers() {
-    const [persuers, setpersuers] = useState([])
+function Persuing() {
+    const [persuing, setpersuing] = useState([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState('')
     const { username } = useParams()
 
     useEffect(() => {
-        const fetchpersuers = async () => {
+        const fetchpersuing = async () => {
             try {
                 setLoading(true)
                 setError('')
-                const response = await persueService.persuerListService(username)
+                const response = await PersueService.persuingListService(username)
                 if (response.success) {
-                    setpersuers(response.data.persuers)
+                    setpersuing(response.data.persuing)
                 } else {
-                    setError(response.message || 'Failed to fetch persuers')
+                    setError(response.message || 'Failed to fetch persuing')
                 }
             } catch (error) {
-                setError(error.message || 'Failed to fetch persuers')
+                setError(error.message || 'Failed to fetch persuing')
             } finally {
                 setLoading(false)
             }
         }
 
         if (username) {
-            fetchpersuers()
+            fetchpersuing()
         }
     }, [username])
 
@@ -56,12 +56,12 @@ function Persuers() {
         )
     }
 
-    if (persuers.length === 0) {
+    if (persuing.length === 0) {
         return (
             <Container>
                 <div className="flex justify-center items-center min-h-[89.5vh]">
                     <div className="text-gray-500 text-center">
-                        <p className="text-xl font-semibold">No persuers Yet</p>
+                        <p className="text-xl font-semibold">No persuing Yet</p>
                         <p className="text-sm mt-2">When someone persus you, they'll appear here</p>
                     </div>
                 </div>
@@ -72,16 +72,16 @@ function Persuers() {
     return (
         <Container>
             <div className="w-full min-h-[89.5vh] p-4 bg-black">
-                <h1 className="text-2xl font-bold text-white mb-6">persuers</h1>
+                <h1 className="text-2xl font-bold text-white mb-6">persuing</h1>
                 <div className="space-y-4">
-                    {persuers.map((persuer) => (
-                        <div key={persuer._id} className="w-full">
+                    {persuing.map((persuing) => (
+                        <div key={persuing._id} className="w-full">
                             <Persue
-                                image={persuer.avtar || "https://via.placeholder.com/150"}
-                                username={persuer.username}
-                                fullName={persuer.fullName}
-                                userId={persuer._id}
-                                ispersuing={persuer.ispersuing}
+                                image={persuing.avtar || "https://via.placeholder.com/150"}
+                                username={persuing.username}
+                                fullName={persuing.fullName}
+                                userId={persuing._id}
+                                ispersuing={persuing.ispersuing}
                             />
                         </div>
                     ))}
@@ -91,4 +91,4 @@ function Persuers() {
     )
 }
 
-export default Persuers
+export default Persuing

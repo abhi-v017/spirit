@@ -1,9 +1,10 @@
 import React from 'react'
+import Createpost from '../components/CreatePost'
 
 function AddPost() {
     return (
         <div>
-            <h1>add posts</h1>
+            <Createpost/>
         </div>
     )
 }

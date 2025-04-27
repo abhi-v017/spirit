@@ -1,9 +1,12 @@
 import React from 'react'
+import Container from '../components/Container'
 
 function Posts() {
     return (
         <div>
-            <h1>Posts</h1>
+            <Container>
+                
+            </Container>
         </div>
     )
 }

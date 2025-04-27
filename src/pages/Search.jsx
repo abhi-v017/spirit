@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Container from '../components/Container'
 import postService from '../services/postService';
+import { Link } from 'react-router-dom';
 
 
 function Search() {
@@ -18,7 +19,6 @@ function Search() {
             } else {
                 setError(response.message || 'Failed to fetch profile')
             }
-            console.log(profile)
         } catch (error) {
             setError(error.message)
         } finally {
@@ -49,15 +49,17 @@ function Search() {
                         </form>
 
                         {/* <!-- Searched User --> */}
-                        {profile && (<div className="flex items-center justify-between bg-black rounded-lg p-3">
-                            <div className="flex items-center space-x-3">
-                                <div className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white text-xl">
-                                    <img className='w-10 h-10 rounded-full object-cover' src={profile.avtar} alt="" />
+                        {profile && (<Link to={`/user-profile/${profile.username}`}>
+                            <div className="flex items-center justify-between bg-black rounded-lg p-3 cursor-pointer">
+                                <div className="flex items-center space-x-3">
+                                    <div className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white text-xl">
+                                        <img className='w-10 h-10 rounded-full object-cover' src={profile.avtar} alt="" />
+                                    </div>
+                                    <span className="text-white font-semibold">{profile.username}</span>
                                 </div>
-                                <span className="text-white font-semibold">{profile.username}</span>
+                                <button className="bg-zinc-600 text-white px-4 py-1 rounded-full cursor-pointer">Persue</button>
                             </div>
-                            <button className="bg-zinc-600 text-white px-4 py-1 rounded-full">Persue</button>
-                        </div>)}
+                        </Link>)}
                     </div>
 
                     {/* <!-- For person icon support --> */}

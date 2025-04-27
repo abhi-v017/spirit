@@ -11,12 +11,14 @@ import AddPost from './pages/AddPost.jsx'
 import Posts from './pages/Posts.jsx'
 import Search from './pages/Search.jsx'
 import Settings from './pages/Settings.jsx'
-import Persuees from './pages/Persuees.jsx'
+import Persuings from './pages/Persuings.jsx'
 import Persuers from './pages/Persuers.jsx'
 import Userprofile from './pages/Userprofile.jsx'
 import LoginPage from './pages/LoginPage.jsx'
 import SignupPage from './pages/SignupPage.jsx'
 import Messages from './pages/Messages.jsx'
+import PostDetails from './pages/PostDetails.jsx'
+import UpdateProfile from './pages/UpdateProfile.jsx'
 
 
 const router = createBrowserRouter([
@@ -61,16 +63,24 @@ const router = createBrowserRouter([
         element: <Settings />
       },
       {
-        path: '/persuees',
-        element: <Persuees />
+        path: '/profile/:username/persuings',
+        element: <Persuings />
       },
       {
-        path: '/persuers',
+        path: '/profile/:username/persuers',
         element: <Persuers />
       },
       {
-        path: '/user-profile/:id',
+        path: '/user-profile/:username',
         element: <Userprofile />
+      },
+      {
+        path: '/post-details/:id',
+        element: <PostDetails/>
+      },
+      {
+        path: '/update-profile',
+        element: <UpdateProfile/>
       }
     ]
   }

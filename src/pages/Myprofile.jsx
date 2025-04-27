@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import Container from '../components/Container'
 import postService from '../services/postService'
+import { Link } from 'react-router-dom'
 
 function Myprofile() {
     const navigate = useNavigate()
@@ -114,27 +115,32 @@ function Myprofile() {
                                     </div>
                                 </div>
                             </div>
-                            <button className="bg-violet-600 text-white px-4 py-1 rounded-full">Edit Profile</button>
+                            <Link to={'/update-profile'}>
+                                <button className="bg-violet-600 text-white px-4 py-1 rounded-full">Edit Profile</button>
+                            </Link>
                         </div>
 
-                        {/* <!-- Tasks Section --> */}
-                        <div className="bg-black rounded-lg p-4">
-                            <h3 className="font-semibold mb-2">Task - (Today’s Added Task)</h3>
-                            <div className="flex justify-between items-center border-b border-gray-700 py-2">
-                                <span>Task 1</span>
-                                <input type="checkbox" checked className="accent-violet-600 w-5 h-5" />
-                            </div>
-                            <div className="flex justify-between items-center border-b border-gray-700 py-2">
-                                <span>Task 2</span>
-                                <input type="checkbox" className="accent-violet-600 w-5 h-5" />
-                            </div>
-                        </div>
+                        {/* <!-- Posts Section --> */}
+                        <div className="bg-black rounded-lg p-2">
+                            <div className="bg-black">
+                                <div className="flex h-full flex-wrap gap-4 justify-center">
+                                    <Link to={'/post-details/:id'} className="w-[30%]">
+                                        <img className='rounded-2xl' src="https://i.pinimg.com/474x/53/18/39/531839a357ecfc245f60c8bf71539d8b.jpg" alt="" />
+                                    </Link>
+                                    <Link to={'/post-details/:id'} className="w-[30%]">
+                                        <img className='rounded-2xl' src="https://i.pinimg.com/474x/53/18/39/531839a357ecfc245f60c8bf71539d8b.jpg" alt="" />
+                                    </Link>
+                                    <Link to={'/post-details/:id'} className="w-[30%]">
+                                        <img className='rounded-2xl' src="https://i.pinimg.com/474x/53/18/39/531839a357ecfc245f60c8bf71539d8b.jpg" alt="" />
+                                    </Link>
+                                    <Link to={'/post-details/:id'} className="w-[30%]">
+                                        <img className='rounded-2xl' src="https://i.pinimg.com/474x/53/18/39/531839a357ecfc245f60c8bf71539d8b.jpg" alt="" />
+                                    </Link>
+                                    <Link to={'/post-details/:id'} className="w-[30%]">
+                                        <img className='rounded-2xl' src="https://i.pinimg.com/474x/53/18/39/531839a357ecfc245f60c8bf71539d8b.jpg" alt="" />
+                                    </Link>
 
-                        {/* <!-- Progress Chart Placeholder --> */}
-                        <div className="bg-black rounded-lg p-4">
-                            <h3 className="font-semibold mb-2">Track Your Progress:-</h3>
-                            <div className="bg-gray-800 h-28 rounded-lg flex items-center justify-center text-gray-400 text-sm">
-                                (Chart Placeholder)
+                                </div>
                             </div>
                         </div>
 

@@ -19,7 +19,7 @@ import SignupPage from './pages/SignupPage.jsx'
 import Messages from './pages/Messages.jsx'
 import PostDetails from './pages/PostDetails.jsx'
 import UpdateProfile from './pages/UpdateProfile.jsx'
-
+import Sample from './ChatBot/Sample.jsx'
 
 const router = createBrowserRouter([
   {
@@ -81,6 +81,10 @@ const router = createBrowserRouter([
       {
         path: '/update-profile',
         element: <UpdateProfile/>
+      },
+      {
+        path: '/sample',
+        element: <Sample/>
       }
     ]
   }

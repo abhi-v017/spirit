@@ -5,11 +5,11 @@ import { useSelector } from 'react-redux';
 
 function Messages() {
   const [chats, setChats] = useState([]);
-  const [selectedChat, setSelectedChat] = useState(null);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const chatEndRef = useRef(null);
   const userData = useSelector(state => state.auth.userData);
+  const [selectedChat, setSelectedChat] = useState(null);
 
 
 
@@ -62,8 +62,7 @@ function Messages() {
             isUser={msg.sender._id === userData._id}
           />
         ))}
-        <div ref={chatEndRef} />
-      </div>
+                  </div>
     );
   };
 
@@ -104,7 +103,7 @@ function Messages() {
         </form>
       </div>
     </div>
-  )
+  );
 }
 
-export default Messages
+export default Messages;

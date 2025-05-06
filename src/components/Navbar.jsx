@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import authService from '../services/authService'
+import { logout } from '../store/authSlice'
 
 function Navbar() {
     const authStatus = useSelector((state) => state.auth.status)
@@ -34,6 +35,16 @@ function Navbar() {
 
         fetchProfile()
     }, [authStatus])
+
+    const handleLogout = async () => {
+        try {
+            await authService.logoutService()
+            dispatch(logout())
+            navigate('/login')
+        } catch (error) {
+            console.log(error)
+        }
+    }
     const navItems = [
         {
             icon: (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
@@ -82,7 +93,7 @@ function Navbar() {
             name: "Add Post",
             slug: '/add-post',
             active: authStatus
-        }
+        },
     ]
     return (
         <div className='w-1/5 h-screen bg-black text-white border-r-2 border-zinc-700 fixed left-0 top-0 z-50'>
@@ -113,6 +124,16 @@ function Navbar() {
                         </li>
                     ) : null
                     )}
+                    {authStatus && (<li onClick={handleLogout} className='flex items-center gap-2 cursor-pointer hover:bg-zinc-200 hover:text-black rounded-2xl px-4 py-2 w-full group'>
+                        <div className="group-hover:text-black text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
+                                <path d="M12 8V16M16 12H8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" />
+                            </svg>
+                        </div>
+                        <span>Logout</span>
+                    </li>)}
+                    
                 </ul>
                 {authStatus && (<Link to={'/my-profile'} className='flex gap-2 justify-center items-center cursor-pointer hover:bg-zinc-200 hover:text-black rounded-2xl px-4 py-2'>
                     <img className='rounded-full h-10 w-10 object-cover' src={profile.avtar} alt="" />
